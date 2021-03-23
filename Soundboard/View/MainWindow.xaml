@@ -1,0 +1,63 @@
+﻿<Window x:Class="Soundboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Soundboard.Control"
+        Style="{DynamicResource CustomWindowStyle}"
+        Title="Soundboard" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="1" Grid.Column="3" Command="{Binding AddSoundButton}">+</Button>
+        <Button Grid.Row="1" Grid.Column="5" Click="StopButton_Click">STOP</Button>
+        <Button Grid.Row="4" Height="100" Width="160" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="5" Background="DarkRed" Click="PlayButton_Click">PLAY</Button>
+        <ComboBox x:Name="ListOutputs" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5" SelectionChanged="ListOutputs_SelectionChanged"/>
+        <ListView Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" x:Name="ListOfSounds" GridViewColumnHeader.Click="ListView_Click" IsSynchronizedWithCurrentItem="True" Margin="0,0,0,0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                    <!--<EventSetter Event="Selected" Handler="ListViewItem_Selected"/>-->
+                    <EventSetter Event="KeyDown" Handler="ListViewItem_KeyDown"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="HeaderName" Header="Title">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <local:EditableTextBlock TextWrapping="Wrap" Foreground="White" Text="{Binding Name, Mode=TwoWay}" Width="285" Height="18" FontSize="14" MouseRightButtonDown="TextBox_MouseRightClick">
+                                    <TextBlock.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Edit"  Click="miEdit_Click" />
+                                            <MenuItem Header="Bind"  Click="miBind_Click" />
+                                            <MenuItem Header="Delete" Click="miDelete_Click"/>
+                                        </ContextMenu>
+                                    </TextBlock.ContextMenu>
+                                </local:EditableTextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

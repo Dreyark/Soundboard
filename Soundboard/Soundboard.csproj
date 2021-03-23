@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="NAudio" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Dreyark\.nuget\packages\vst.net2-host\2.0.1\build\..\runtimes\win10-AnyCPU\native\ijwhost.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Dreyark\.nuget\packages\vst.net2-host\2.0.1\build\..\runtimes\win10-AnyCPU\native\ijwhost.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Dreyark\.nuget\packages\vst.net2-host\2.0.1\build\..\runtimes\win10-AnyCPU\native\ijwhost.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Dreyark\.nuget\packages\vst.net2-host\2.0.1\build\..\runtimes\win10-AnyCPU\native\ijwhost.dll" />
+  </ItemGroup>
+
+</Project>
